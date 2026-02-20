@@ -120,10 +120,13 @@ return (
                 <div className="flex items-center gap-3">
                   <span className="text-green-500 font-bold">➜</span>
                   <span className="text-cyan-400 font-bold">~</span>
-                  <span className="text-white font-bold text-xl">whoami</span>
+                  <span className="text-white font-bold text-xl">who am i</span>
                 </div>
                 <p className="text-2xl md:text-3xl leading-snug font-extrabold text-gray-100 tracking-tight">
-                  "안녕하세요! 코드는 <span className="text-blue-500 italic underline underline-offset-8">단순하게</span>, 생각은 깊이 있게, 결과는 가치 있게."
+                  "안녕하세요! 코드는 단순하게, 생각은 깊이 있게, 결과는 가치 있게"
+                </p>
+                <p className="text-2xl md:text-3xl leading-snug font-extrabold text-gray-100 tracking-tight">
+                  <span className="text-blue-500 italic">5년차 개발자</span> 임지영 입니다.
                 </p>
               </div>
 
@@ -136,25 +139,20 @@ return (
                 </div>
                 <div className="font-sans bg-black/30 p-8 rounded-2xl border-l-4 border-blue-600 leading-relaxed text-lg text-gray-300">
                   <p>
-                    저는 단순히 기능을 구현하는 것을 넘어, <strong className="text-white text-xl">기술의 근본이 되는 탄탄한 기본기</strong>를 가장 중요하게 생각합니다. 
-                    자바와 스프링 생태계에서 다져온 견고한 지식은 어떠한 복잡한 요구사항 앞에서도 흔들리지 않는 중심이 되어주었습니다.
+                    안녕하세요, <strong>기본기에 집착하는 5년 차 개발자 임지영</strong>입니다. 
+                    자바와 스프링 생태계에서 다져온 탄탄한 기초는 어떤 복잡한 요구사항 앞에서도 흔들리지 않는 제 가장 큰 무기입니다.
                   </p>
-                  <p className="mt-6">
-                    이러한 기본기를 바탕으로, 급변하는 AI 시대에 <strong className="text-blue-400">AI를 나의 대체자가 아닌 생산성을 극대화하는 강력한 파트너</strong>로 정의합니다. 
-                    AI가 제안하는 코드를 무비판적으로 수용하지 않고, 직접 검증하고 최적화하여 시스템의 안정성을 확보하는 것이 저의 핵심 역량입니다.
+                  <p className="mt-4 text-blue-500">
+                    저는 AI를 단순한 코드 생성기가 아닌, <strong>나의 생산성을 극대화하는 파트너</strong>로 정의합니다. 
+                    도구가 제안하는 결과물을 무비판적으로 수용하지 않고, 직접 검증하고 최적화하여 시스템의 안정성을 끝까지 책임집니다.
                   </p>
-                  <p className="mt-6">
-                    지난 5년여간 <strong>삼성전자, CJ, KT 등 대규모 엔터프라이즈 프로젝트</strong>를 통해 복잡한 아키텍처 내에서의 협업과 데이터 흐름을 경험했습니다. 
-                    큰 조직에서는 정해진 역할을 완벽히 수행하며 시스템의 거대한 톱니바퀴가 원활히 돌아가는 법을 배웠습니다.
+                  <p className="mt-4">
+                    <strong>삼성전자, CJ, KT</strong> 등 대규모 프로젝트에서는 완벽한 협업과 역할 수행으로 거대한 시스템의 안정성을 배웠고, 
+                    소규모 프로젝트에서는 <strong>기획부터 DB 설계, QA까지</strong> 전 과정을 리드하며 서비스 전체를 보는 시야를 길렀습니다.
                   </p>
-                  <p className="mt-6">
-                    반면, 중소규모 프로젝트에서는 <strong>기획부터 DB 설계, 개발, 그리고 품질을 책임지는 QA까지</strong> 전 과정을 직접 리딩하며 
-                    서비스의 전체 수명 주기를 관리하는 넓은 시야를 갖추게 되었습니다.
-                  </p>
-                  <p className="mt-6">
-                    변화와 새로운 기술을 마주할 때 거부감보다는 설렘을 느낍니다. 
-                    이미 익숙한 환경에 안주하기보다 <strong className="text-blue-500 underline">새로운 도전 속에서 성장의 동력을 찾는 열정</strong>으로 
-                    앞으로도 비즈니스 가치를 창출하는 개발자로 나아가겠습니다.
+                  <p className="mt-4">
+                    새로운 기술을 마주할 때 거부감보다 설렘을 느낍니다. 
+                    익숙함에 안주하기보다 <strong>새로운 도전 속에서 성장의 동력을 찾는 집요함</strong>으로 비즈니스 가치를 만들어내겠습니다.
                   </p>
                   <div className="mt-8">
                     <motion.span 
