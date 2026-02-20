@@ -54,10 +54,9 @@ const SKILLS = {
 };
 
 function App() {
+  // 기본값을 false(Light)로 설정합니다.
+  const [darkMode, setDarkMode] = useState(false); 
 
-  const [darkMode, setDarkMode] = useState(true); // 기본값 다크 모드
-
-  // 테마 변경 시 HTML 클래스 조작
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -67,114 +66,169 @@ function App() {
   }, [darkMode]);
 
   const toggleTheme = () => setDarkMode(!darkMode);
-  
+
 return (
-    // 최상위 div에 다크 모드 배경/텍스트 색상 정의
-    <div className={`min-h-screen font-sans transition-colors duration-300 ${darkMode ? 'bg-[#0f0f0f] text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
+<div className={`min-h-screen font-sans transition-colors duration-500 ${
+      darkMode ? 'bg-[#0f0f0f] text-gray-100' : 'bg-white text-gray-900'
+    }`}>
       
-      {/* 1. Navbar (토글 버튼 포함) */}
-      <nav className={`fixed top-0 w-full z-50 border-b transition-colors ${darkMode ? 'bg-[#0f0f0f]/80 border-gray-900' : 'bg-white/80 border-gray-200'} backdrop-blur-md`}>
-        <div className="p-6 flex justify-between items-center max-w-5xl mx-auto">
-          <h1 className={`text-xl font-mono font-bold tracking-tighter ${darkMode ? 'text-blue-500' : 'text-blue-600'}`}>JIYOUNG.LOG</h1>
+      {/* Navbar: 텍스트 크기 및 선명도 강화 */}
+      <nav className={`fixed top-0 w-full z-50 border-b transition-colors duration-500 ${
+        darkMode ? 'bg-[#0f0f0f]/90 border-gray-800' : 'bg-white/90 border-gray-200'
+      } backdrop-blur-md`}>
+        <div className="p-5 flex justify-between items-center max-w-6xl mx-auto">
+          <h1 className={`text-2xl font-mono font-black tracking-tighter ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+            JIYOUNG.LOG
+          </h1>
           
-          <div className="flex items-center gap-6">
-            <div className="hidden md:flex space-x-8 text-sm font-mono text-gray-400">
-              <a href="#about" className="hover:text-blue-500 transition">./about</a>
-              <a href="#projects" className="hover:text-blue-500 transition">./projects</a>
+          <div className="flex items-center gap-8">
+            <div className={`hidden md:flex space-x-10 text-base font-bold ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <a href="#about" className="hover:text-blue-500 transition">About</a>
+              <a href="#projects" className="hover:text-blue-500 transition">Projects</a>
             </div>
 
-            {/* 테마 토글 버튼 */}
             <button 
               onClick={toggleTheme}
-              className={`p-2 rounded-lg border transition-all ${darkMode ? 'bg-gray-800 border-gray-700 text-yellow-400' : 'bg-gray-100 border-gray-300 text-gray-600'}`}
-              aria-label="Toggle Theme"
+              className={`flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-bold transition-all ${
+                darkMode 
+                ? 'bg-gray-800 border-gray-700 text-yellow-400' 
+                : 'bg-gray-100 border-gray-300 text-gray-800 hover:bg-gray-200 shadow-sm'
+              }`}
             >
-              {darkMode ? (
-                <span>☀️ Light</span>
-              ) : (
-                <span>🌙 Dark</span>
-              )}
-            </button> 
+              {darkMode ? "🌙 Dark" : "☀️ Light"}
+            </button>
           </div>
         </div>
       </nav>
 
-      <main className="pt-24">
-        {/* 2. Terminal Hero Section */}
-        <section className="max-w-5xl mx-auto px-6 py-12 md:py-24">
-          <div className="bg-[#1e1e1e] rounded-xl shadow-2xl border border-gray-800 overflow-hidden font-mono">
-            <div className="bg-[#333] px-4 py-2 flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <div className="w-3 h-3 rounded-full bg-green-500" />
-              <span className="ml-2 text-xs text-gray-400 font-mono italic">visitor@jiyoung-dev: ~</span>
+      <main className="pt-32">
+        <section className="max-w-5xl mx-auto px-6 py-12">
+          {/* 터미널 창: font-mono 적용 */}
+          <div className="bg-[#121212] rounded-2xl shadow-2xl border border-gray-800 overflow-hidden font-mono">
+            <div className="bg-[#1e1e1e] px-6 py-4 flex items-center gap-2 border-b border-[#2a2a2a]">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+                <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+              </div>
+              <span className="ml-4 text-xs font-medium text-gray-500 tracking-widest uppercase">zsh — 80x24</span>
             </div>
-            <div className="p-8 space-y-6">
-              <div>
-                <span className="text-green-400">➜</span> <span className="text-cyan-400">~</span> <span className="text-white">whoami</span>
-                <p className="mt-2 text-gray-300 leading-relaxed">
-                  "안녕하세요! 코드는 단순하게, 생각은 깊이 있게, 결과는 가치 있게. <br/>
-                  AI 시대의 개발자로서 <strong>집요한 검증과 책임감</strong>으로 가치를 설계하는 임지영입니다."
+
+            <div className="p-10 space-y-12">
+              {/* WHO AM I: font-mono의 세련된 느낌 */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-green-500 font-bold">➜</span>
+                  <span className="text-cyan-400 font-bold">~</span>
+                  <span className="text-white font-bold text-xl">whoami</span>
+                </div>
+                <p className="text-2xl md:text-3xl leading-snug font-extrabold text-gray-100 tracking-tight">
+                  "안녕하세요! 코드는 <span className="text-blue-500 italic underline underline-offset-8">단순하게</span>, 생각은 깊이 있게, 결과는 가치 있게."
                 </p>
               </div>
 
+              {/* 자기소개서 본문: font-sans(Inter)로 가독성 확보 */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <span className="text-green-500 font-bold">➜</span>
+                  <span className="text-cyan-400 font-bold">~</span>
+                  <span className="text-white font-bold text-xl">cat intro.md</span>
+                </div>
+                <div className="font-sans bg-black/30 p-8 rounded-2xl border-l-4 border-blue-600 leading-relaxed text-lg text-gray-300">
+                  <p>
+                    저는 단순히 기능을 구현하는 것을 넘어, <strong className="text-white text-xl">기술의 근본이 되는 탄탄한 기본기</strong>를 가장 중요하게 생각합니다. 
+                    자바와 스프링 생태계에서 다져온 견고한 지식은 어떠한 복잡한 요구사항 앞에서도 흔들리지 않는 중심이 되어주었습니다.
+                  </p>
+                  <p className="mt-6">
+                    이러한 기본기를 바탕으로, 급변하는 AI 시대에 <strong className="text-blue-400">AI를 나의 대체자가 아닌 생산성을 극대화하는 강력한 파트너</strong>로 정의합니다. 
+                    AI가 제안하는 코드를 무비판적으로 수용하지 않고, 직접 검증하고 최적화하여 시스템의 안정성을 확보하는 것이 저의 핵심 역량입니다.
+                  </p>
+                  <p className="mt-6">
+                    지난 5년여간 <strong>삼성전자, CJ, KT 등 대규모 엔터프라이즈 프로젝트</strong>를 통해 복잡한 아키텍처 내에서의 협업과 데이터 흐름을 경험했습니다. 
+                    큰 조직에서는 정해진 역할을 완벽히 수행하며 시스템의 거대한 톱니바퀴가 원활히 돌아가는 법을 배웠습니다.
+                  </p>
+                  <p className="mt-6">
+                    반면, 중소규모 프로젝트에서는 <strong>기획부터 DB 설계, 개발, 그리고 품질을 책임지는 QA까지</strong> 전 과정을 직접 리딩하며 
+                    서비스의 전체 수명 주기를 관리하는 넓은 시야를 갖추게 되었습니다.
+                  </p>
+                  <p className="mt-6">
+                    변화와 새로운 기술을 마주할 때 거부감보다는 설렘을 느낍니다. 
+                    이미 익숙한 환경에 안주하기보다 <strong className="text-blue-500 underline">새로운 도전 속에서 성장의 동력을 찾는 열정</strong>으로 
+                    앞으로도 비즈니스 가치를 창출하는 개발자로 나아가겠습니다.
+                  </p>
+                  <div className="mt-8">
+                    <motion.span 
+                      animate={{ opacity: [0, 1, 0] }}
+                      transition={{ repeat: Infinity, duration: 1 }}
+                      className="inline-block w-3 h-6 bg-blue-500 align-middle"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              
+              {/* Core Values */}
               <div>
-                <span className="text-green-400">➜</span> <span className="text-cyan-400">~</span> <span className="text-white">ls --core-values</span>
-                <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-green-500 font-black">➜</span>
+                  <span className="text-cyan-400 font-black">~</span>
+                  <span className="text-white font-black">ls --core-values</span>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-base">
                   {['Responsibility', 'Persistence', 'Meticulousness', 'Challenge'].map((val) => (
-                    <div key={val} className="border border-gray-700 p-3 rounded-lg bg-black/20 text-blue-400 text-xs text-center font-bold">
+                    <div key={val} className="bg-[#000] border-2 border-gray-800 p-4 rounded-xl text-center text-blue-400 font-black tracking-widest hover:border-blue-500 transition-colors">
                       {val}
                     </div>
                   ))}
                 </div>
               </div>
-
-              <div className="flex items-center gap-2">
-                <span className="text-green-400">➜</span> <span className="text-cyan-400">~</span> 
-                <span className="text-white">grep "success" mindset</span>
-                <motion.span 
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ repeat: Infinity, duration: 0.8 }}
-                  className="w-2 h-5 bg-blue-500 inline-block"
-                />
-              </div>
             </div>
           </div>
         </section>
 
- {/* 4. Projects Section */}
-        <section id="projects" className="max-w-5xl mx-auto px-6 py-20 border-t border-gray-900">
-          <div className="flex justify-between items-end mb-12">
-            <h3 className="text-3xl font-bold italic tracking-tighter">Selected_Projects</h3>
-            <span className="text-gray-600 font-mono text-sm">TOTAL (06)</span>
+        {/* Projects Section: 텍스트 항상 노출 및 호버 시 강조 */}
+        <section id="projects" className={`max-w-6xl mx-auto px-6 py-24 border-t ${darkMode ? 'border-gray-900' : 'border-gray-200'}`}>
+          <div className="flex justify-between items-end mb-16">
+            <h3 className={`text-4xl font-black tracking-tighter ${darkMode ? 'text-white' : 'text-gray-900'}`}>Selected_Projects</h3>
+            <span className={`font-mono font-bold text-lg ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>TOTAL (06)</span>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {PROJECTS.map((project, index) => (
               <motion.div 
                 key={index}
-                whileHover={{ y: -10 }}
-                className="group p-8 rounded-2xl bg-[#151515] border border-gray-800 hover:border-blue-500/30 transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -5 }}
+                className={`group p-10 rounded-3xl border-2 transition-all duration-300 ${
+                  darkMode 
+                  ? 'bg-[#1a1a1a] border-gray-800 hover:border-blue-500 shadow-2xl' 
+                  : 'bg-white border-gray-100 shadow-lg hover:shadow-2xl hover:border-blue-300'
+                }`}
               >
-                <div className="flex justify-between items-start mb-6">
-                  <span className="text-[10px] font-mono text-blue-500 bg-blue-500/10 px-2 py-1 rounded tracking-widest">{project.period}</span>
-                  <span className="text-gray-700 group-hover:text-blue-500 transition-colors">↗</span>
+                <div className="flex justify-between items-center mb-6">
+                  <span className={`text-xs font-black px-3 py-1 rounded-full tracking-wider ${
+                    darkMode ? 'bg-blue-900/40 text-blue-300' : 'bg-blue-100 text-blue-700'
+                  }`}>{project.period}</span>
+                  <span className={`text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 ${darkMode ? 'text-gray-700' : 'text-gray-300'}`}>↗</span>
                 </div>
                 
-                <h4 className="text-xl font-bold mb-4 group-hover:text-white transition-colors">{project.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">{project.description}</p>
+                <h4 className={`text-2xl font-black mb-5 transition-colors ${darkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'}`}>{project.title}</h4>
                 
-                <ul className="mb-6 space-y-1">
+                {/* 설명 문구 크기 키우고 색상 진하게 수정 */}
+                <p className={`text-base font-semibold leading-relaxed mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                  {project.description}
+                </p>
+                
+                <ul className="mb-8 space-y-3">
                   {project.keyPoints.map((point, i) => (
-                    <li key={i} className="text-xs text-gray-500 flex items-start gap-2">
-                      <span className="text-blue-900 mt-1">•</span> {point}
+                    <li key={i} className={`text-sm font-bold flex items-start gap-3 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                      <span className="text-blue-600 text-lg">•</span> {point}
                     </li>
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-900">
+                <div className={`flex flex-wrap gap-3 pt-6 border-t ${darkMode ? 'border-gray-800' : 'border-gray-100'}`}>
                   {project.tech.map(t => (
-                    <span key={t} className="text-[9px] uppercase tracking-tighter text-gray-600 font-mono">#{t}</span>
+                    <span key={t} className={`text-xs font-black uppercase tracking-widest ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>#{t}</span>
                   ))}
                 </div>
               </motion.div>
@@ -182,30 +236,31 @@ return (
           </div>
         </section>
 
-        {/* 3. Skills Section */}
-        <section id="about" className="max-w-5xl mx-auto px-6 py-20 border-t border-gray-900">
-          <h3 className="text-sm font-bold text-gray-500 uppercase tracking-[0.2em] mb-12 flex items-center gap-2">
-            <span className="w-8 h-px bg-gray-800" /> Core Skills
+        {/* Skills Section: 텍스트 대비 강화 */}
+        <section id="about" className={`max-w-6xl mx-auto px-6 py-24 border-t ${darkMode ? 'border-gray-900' : 'border-gray-200'}`}>
+          <h3 className={`text-lg font-black uppercase tracking-[0.2em] mb-16 flex items-center gap-4 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+            <span className="w-12 h-1 bg-blue-600" /> Core Skills
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {Object.entries(SKILLS).map(([category, items]) => (
-              <div key={category} className="space-y-4">
-                <h4 className="text-white font-mono font-bold flex items-center gap-2">
-                  <span className="text-blue-500">{'>'}</span> {category}
+              <div key={category} className="space-y-6">
+                <h4 className={`text-xl font-black flex items-center gap-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <span className="text-blue-600 font-bold">{'>'}</span> {category}
                 </h4>
-                <ul className="space-y-2 text-sm text-gray-500">
+                <ul className="space-y-3 text-base font-bold text-gray-500">
                   {items.map(item => (
-                    <li key={item} className="hover:text-blue-400 transition-colors cursor-default tracking-wide">{item}</li>
+                    <li key={item} className={`transition-colors cursor-default ${darkMode ? 'hover:text-white' : 'hover:text-blue-600'}`}>
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
         </section>
-
       </main>
 
-      <footer className="p-12 text-center text-gray-600 text-xs font-mono border-t border-gray-900">
+      <footer className={`p-16 text-center text-sm font-black border-t transition-colors ${darkMode ? 'bg-[#0a0a0a] border-gray-900 text-gray-600' : 'bg-gray-50 border-gray-200 text-gray-400'}`}>
         &copy; 2026 JIYOUNG.DEV. ALL RIGHTS RESERVED. (PERSISTENCE_PAYS_OFF)
       </footer>
     </div>
