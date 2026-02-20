@@ -1,5 +1,5 @@
+import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
-
 // 프로젝트 데이터 (상수)
 const PROJECTS = [
   {
@@ -54,15 +54,47 @@ const SKILLS = {
 };
 
 function App() {
-  return (
-    <div className="bg-[#0f0f0f] text-gray-100 min-h-screen font-sans selection:bg-blue-500">
-      {/* 1. Navbar */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0f0f0f]/80 backdrop-blur-md border-b border-gray-900">
+
+  const [darkMode, setDarkMode] = useState(true); // 기본값 다크 모드
+
+  // 테마 변경 시 HTML 클래스 조작
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  const toggleTheme = () => setDarkMode(!darkMode);
+  
+return (
+    // 최상위 div에 다크 모드 배경/텍스트 색상 정의
+    <div className={`min-h-screen font-sans transition-colors duration-300 ${darkMode ? 'bg-[#0f0f0f] text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
+      
+      {/* 1. Navbar (토글 버튼 포함) */}
+      <nav className={`fixed top-0 w-full z-50 border-b transition-colors ${darkMode ? 'bg-[#0f0f0f]/80 border-gray-900' : 'bg-white/80 border-gray-200'} backdrop-blur-md`}>
         <div className="p-6 flex justify-between items-center max-w-5xl mx-auto">
-          <h1 className="text-xl font-mono font-bold tracking-tighter text-blue-500">JIYOUNG.LOG</h1>
-          <div className="space-x-8 text-sm font-mono text-gray-400">
-            <a href="#about" className="hover:text-white transition">./about</a>
-            <a href="#projects" className="hover:text-white transition">./projects</a>
+          <h1 className={`text-xl font-mono font-bold tracking-tighter ${darkMode ? 'text-blue-500' : 'text-blue-600'}`}>JIYOUNG.LOG</h1>
+          
+          <div className="flex items-center gap-6">
+            <div className="hidden md:flex space-x-8 text-sm font-mono text-gray-400">
+              <a href="#about" className="hover:text-blue-500 transition">./about</a>
+              <a href="#projects" className="hover:text-blue-500 transition">./projects</a>
+            </div>
+
+            {/* 테마 토글 버튼 */}
+            <button 
+              onClick={toggleTheme}
+              className={`p-2 rounded-lg border transition-all ${darkMode ? 'bg-gray-800 border-gray-700 text-yellow-400' : 'bg-gray-100 border-gray-300 text-gray-600'}`}
+              aria-label="Toggle Theme"
+            >
+              {darkMode ? (
+                <span>☀️ Light</span>
+              ) : (
+                <span>🌙 Dark</span>
+              )}
+            </button> 
           </div>
         </div>
       </nav>
@@ -149,7 +181,7 @@ function App() {
             ))}
           </div>
         </section>
-        
+
         {/* 3. Skills Section */}
         <section id="about" className="max-w-5xl mx-auto px-6 py-20 border-t border-gray-900">
           <h3 className="text-sm font-bold text-gray-500 uppercase tracking-[0.2em] mb-12 flex items-center gap-2">
