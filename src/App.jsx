@@ -5,30 +5,30 @@ const PROJECTS = [
   {
     title: "한익스프레스 쇼핑몰 통합관리 'DAON'",
     period: "2024.08 - 2025.01",
-    tech: ["React", "Spring Boot", "Oracle", "Mybatis"],
-    description: "공급·생산·매장관리로 분산된 3개 시스템을 하나로 통합했습니다.",
-    keyPoints: ["Vue.js → React 리액토링", "비즈니스 로직 현대화"]
+    tech: ["Java", "Spring", "JSP", "C#", "Mysql", "Oracle", "Mybatis"],
+    description: "한익스프레스와 외부 쇼핑몰을 연동한 통합 물류 기반 업무 시스템",
+    keyPoints: ["이랜드몰 전용 통합관리 솔루션(CLMS)을 고객사 요구사항에 맞게 설계 및 커스터마이징", "외부 쇼핑몰 API 연동"]
   },
   {
     title: "CJ CGV 차세대 시스템",
     period: "2025.02 - 2025.07",
-    tech: ["React", "Spring Boot", "Oracle", "Mybatis"],
+    tech: ["React", "TypeScript"],
     description: "대규모 디지털 시스템 구축 및 프론트엔드 최적화 작업을 수행했습니다.",
     keyPoints: ["대규모 트래픽 대응", "시스템 안정성 강화"]
   },
   {
     title: "한살림 통합 모바일웹 'Msalime'",
     period: "2024.08 - 2025.01",
-    tech: ["React", "Spring Boot", "Oracle", "Mybatis"],
+    tech: ["React", "Spring", "Oracle", "Mybatis"],
     description: "분산된 3개 시스템을 하나로 통합하여 운영 효율을 개선했습니다.",
-    keyPoints: ["기존 Vue 분석 후 리팩토링", "통합 시스템 설계"]
+    keyPoints: ["기존 Vue.js 분석 후 React 리팩토링", "한살림 시스템의 통합으로 현장 운영 개선"]
   },
   {
-    title: "KT알파 쇼핑몰 통합관리 'TAMS'",
+    title: "KT Alpha 쇼핑몰 통합관리 'TAMS'",
     period: "2024.03 - 2024.07",
-    tech: ["Java", "Spring", "JSP", "MySQL", "API 연동"],
-    description: "쇼핑몰 통합 관리 솔루션 커스터마이징 개발을 담당했습니다.",
-    keyPoints: ["외부 쇼핑몰 API 연동", "프로시저 최적화"]
+    tech: ["Java", "Spring", "JSP", "C#", "Mysql", "Oracle", "Mybatis"],
+    description: "kT Alpah 와 외부 쇼핑몰을 연동한 통합 쇼핑몰 기반 업무 시스템.",
+    keyPoints: ["이랜드몰 전용 통합관리 솔루션(CLMS)을 고객사 요구사항에 맞게 설계 및 커스터마이징", "외부 쇼핑몰 API 연동"]
   },
   {
     title: "삼성전자 DS 부문 'DS-CLOUD'",
@@ -126,11 +126,10 @@ return (
                   "안녕하세요! 코드는 단순하게, 생각은 깊이 있게, 결과는 가치 있게"
                 </p>
                 <p className="text-2xl md:text-3xl leading-snug font-extrabold text-gray-100 tracking-tight">
-                  <span className="text-blue-500 italic">5년차 개발자</span> 임지영 입니다.
+                  <span className="text-blue-500 italic">5년차 Fullstack 개발자</span> 임지영 입니다.
                 </p>
               </div>
 
-              {/* 자기소개서 본문: font-sans(Inter)로 가독성 확보 */}
               <div className="space-y-6">
                 <div className="flex items-center gap-3">
                   <span className="text-green-500 font-bold">➜</span>
@@ -139,20 +138,24 @@ return (
                 </div>
                 <div className="font-sans bg-black/30 p-8 rounded-2xl border-l-4 border-blue-600 leading-relaxed text-lg text-gray-300">
                   <p>
-                    안녕하세요, <strong>기본기에 집착하는 5년 차 개발자 임지영</strong>입니다. 
-                    자바와 스프링 생태계에서 다져온 탄탄한 기초는 어떤 복잡한 요구사항 앞에서도 흔들리지 않는 제 가장 큰 무기입니다.
+                    Java/Spring 기반 백엔드부터 React, JSP 프론트엔드까지,
+                    다양한 시스템을 통합하고 안정적으로 운영 가능한 구조로 개선해온 Fullstack 개발자입니다.
                   </p>
-                  <p className="mt-4 text-blue-500">
-                    저는 AI를 단순한 코드 생성기가 아닌, <strong>나의 생산성을 극대화하는 파트너</strong>로 정의합니다. 
-                    도구가 제안하는 결과물을 무비판적으로 수용하지 않고, 직접 검증하고 최적화하여 시스템의 안정성을 끝까지 책임집니다.
-                  </p>
+
                   <p className="mt-4">
-                    <strong>삼성전자, CJ, KT</strong> 등 대규모 프로젝트에서는 완벽한 협업과 역할 수행으로 거대한 시스템의 안정성을 배웠고, 
-                    소규모 프로젝트에서는 <strong>기획부터 DB 설계, QA까지</strong> 전 과정에 참여하며 서비스 전체를 보는 시야를 길렀습니다.
+                    AI가 코드를 생성하는 시대에, 저는 AI를 대체자가 아닌 생산성을 높이는 도구로 활용하며
+                    빠르게 개발하면서도 정확한 구현을 위해 노력하고 있습니다.
                   </p>
+
                   <p className="mt-4">
-                    새로운 기술을 마주할 때 거부감보다 설렘을 느낍니다. 
-                    익숙함에 안주하기보다 <strong>새로운 도전 속에서 성장의 동력을 찾는 집요함</strong>으로 비즈니스 가치를 만들어내겠습니다.
+                    삼성전자, CJ CGV, KT Alpha 등 대규모 프로젝트에서는 역할에 맞는 협업 경험을 쌓았고,  
+                    중소규모 프로젝트에서는 기획, 설계, 개발, QA 까지 전 과정에 참여하며
+                    시스템 전체 흐름을 이해하는 시야를 넓혔습니다.
+                  </p>
+
+                  <p className="mt-4">
+                    책임감과 꼼꼼함을 바탕으로 요구사항을 끝까지 추적하고 검증하여,
+                    안정적인 서비스 오픈과 높은 완성도를 만들어 왔습니다.
                   </p>
                   <div className="mt-8">
                     <motion.span 
@@ -163,7 +166,6 @@ return (
                   </div>
                 </div>
               </div>
-
               
               {/* Core Values */}
               <div>
@@ -259,7 +261,6 @@ return (
       </main>
 
       <footer className={`p-16 text-center text-sm font-black border-t transition-colors ${darkMode ? 'bg-[#0a0a0a] border-gray-900 text-gray-600' : 'bg-gray-50 border-gray-200 text-gray-400'}`}>
-        &copy; 2026 JIYOUNG.DEV. ALL RIGHTS RESERVED. (PERSISTENCE_PAYS_OFF)
       </footer>
     </div>
   );
